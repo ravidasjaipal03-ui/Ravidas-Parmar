@@ -18,21 +18,21 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0
 section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}.intro{color:var(--muted);max-width:720px;margin-top:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.card{background:linear-gradient(145deg,#1b1a18,#121214);border:1px solid var(--line);padding:24px;border-radius:12px}.number{color:var(--gold);font-size:.8rem;letter-spacing:2px}.card h3{margin:8px 0}.card p{color:var(--muted);margin:0}.gallery-note{padding:28px;border:1px dashed #80683e;border-radius:12px;color:var(--muted);background:#16130e}.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.socials a{padding:11px 15px;text-decoration:none;border:1px solid var(--line);border-radius:6px}.socials a:hover{border-color:var(--gold);color:var(--gold)}.contact{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:28px;border:1px solid #66502d;border-radius:12px;background:linear-gradient(110deg,#292015,#151414)}footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:760px){nav{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;padding:42px 0 54px}.visual{min-height:280px}.grid{grid-template-columns:1fr}section{padding:34px 0}.contact{align-items:flex-start;flex-direction:column}}
 .rotating-logo {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
   animation: logoRotate 6s linear infinite;
+  transform-origin: center;
 }
 
 @keyframes logoRotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-  }
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}</script>
 </head>
 <body>
-<img src="parmar.png" alt="Parmar Ravidas Logo" style="width:150px; height:auto; display:block; margin:20px auto;">
+<img src="parmar.png" alt="Parmar Ravidas Logo"
+     class="rotating-logo"
+     style="width:150px; height:auto; display:block; margin:20px auto;">
 <header class="wrap"><nav><a class="brand" href="#home">PARMAR <span>RAVIDAS</span></a><div class="links"><a href="#about">About</a><a href="#services">My Skills</a><a href="#work">My Work</a><a href="#social">Social Media</a><a href="#contact">Contact</a></div></nav></header>
 <main>
 <section class="wrap hero" id="home"><div><div class="eyebrow">Official Personal Website</div><h1>Parmar <span>Ravidas</span></h1><p class="lead">Photo & Video Editing Creator</p><p class="lead">Welcome to my creative world. Explore my photo edits, video projects, visual designs, and official social media profiles—all in one place.</p><div class="buttons"><a class="btn primary" href="#work">Explore My Work</a><a class="btn" href="#social">Follow Me</a></div></div><aside class="visual"><div><div class="monogram">SR</div><strong>PARMAR RAVIDAS</strong><small>PHOTO EDITING · VIDEO EDITING · CREATIVE DESIGNS</small><small>Replace this SR circle with your own photo if you wish.</small></div></aside></section>
@@ -55,6 +55,4 @@ section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}
   <img src="sandya1.png" alt="Sandya Editing" width="280">
   <img src="sandya2.png" alt="Sandya Editing" width="280">
   </section>
-  <img src="parmar.png" alt="Parmar Ravidas Logo"
-     class="rotating-logo">
 </body></html>
