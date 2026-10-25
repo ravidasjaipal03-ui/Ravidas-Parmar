@@ -109,6 +109,134 @@ section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}
   margin-top: 15px;
   font-size: 14px;
 }
+/* Parmar Ravidas Modern Hamburger Menu */
+
+.pr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #111;
+  border-bottom: 1px solid #d4a017;
+  position: relative;
+  z-index: 1001;
+}
+
+.pr-brand {
+  color: #f5c542;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pr-menu-btn {
+  width: 45px;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: #202020;
+  border: 1px solid #d4a017;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pr-menu-btn span {
+  display: block;
+  width: 23px;
+  height: 2px;
+  background: #f5c542;
+  border-radius: 5px;
+  transition: .3s;
+}
+
+.pr-menu-btn.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.pr-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.pr-menu-btn.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.pr-navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(300px, 85vw);
+  height: 100%;
+  padding: 85px 20px 30px;
+  box-sizing: border-box;
+  background: linear-gradient(160deg, #171717, #080808);
+  border-left: 1px solid #d4a017;
+  box-shadow: -10px 0 35px #0005;
+  z-index: 1000;
+  transform: translateX(110%);
+  visibility: hidden;
+  transition: transform .35s ease, visibility .35s;
+  overflow-y: auto;
+}
+
+.pr-navigation.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.pr-menu-heading {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d4a01766;
+}
+
+.pr-menu-heading h2 {
+  color: #f5c542;
+  font-size: 23px;
+}
+
+.pr-menu-heading p {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.pr-menu-link {
+  display: block;
+  padding: 14px 12px;
+  margin: 8px 0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9px;
+  transition: .25s;
+}
+
+.pr-menu-link:hover {
+  color: #f5c542;
+  background: #d4a01720;
+  padding-left: 20px;
+}
+
+.pr-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.pr-menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.pr-menu-open {
+  overflow: hidden;
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
 // Parmar Ravidas Photo Card Animation
@@ -170,6 +298,56 @@ section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}
 
   updateCards();
 })();
+// Parmar Ravidas Hamburger Menu
+
+(() => {
+  const btn = document.getElementById("prMenuBtn");
+  const nav = document.getElementById("prNavigation");
+  const overlay = document.getElementById("prOverlay");
+
+  if (!btn || !nav || !overlay || btn.dataset.ready) return;
+  btn.dataset.ready = "true";
+
+  function closeMenu() {
+    btn.classList.remove("active");
+    nav.classList.remove("open");
+    overlay.classList.remove("show");
+    document.body.classList.remove("pr-menu-open");
+
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "Open menu");
+    nav.setAttribute("aria-hidden", "true");
+  }
+
+  function openMenu() {
+    btn.classList.add("active");
+    nav.classList.add("open");
+    overlay.classList.add("show");
+    document.body.classList.add("pr-menu-open");
+
+    btn.setAttribute("aria-expanded", "true");
+    btn.setAttribute("aria-label", "Close menu");
+    nav.setAttribute("aria-hidden", "false");
+  }
+
+  btn.addEventListener("click", () => {
+    if (nav.classList.contains("open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  overlay.addEventListener("click", closeMenu);
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeMenu();
+  });
+})();
 </script>
 </head>
 <body>
@@ -214,4 +392,35 @@ section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}
 
   <p id="photoCount">Photo 1 of 4</p>
 </section>
+<!-- Parmar Ravidas Hamburger Menu -->
+
+<header class="pr-header">
+  <a href="#home" class="pr-brand">Parmar Ravidas</a>
+
+  <button class="pr-menu-btn"
+          id="prMenuBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="prNavigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<div class="pr-menu-overlay" id="prOverlay"></div>
+
+<nav class="pr-navigation" id="prNavigation" aria-hidden="true">
+  <div class="pr-menu-heading">
+    <h2>Parmar Ravidas</h2>
+    <p>Welcome to My Website</p>
+  </div>
+
+  <a href="#home" class="pr-menu-link">🏠 Home</a>
+  <a href="#about" class="pr-menu-link">👤 About Me</a>
+  <a href="#gallery" class="pr-menu-link">🖼️ Photo Gallery</a>
+  <a href="#edits" class="pr-menu-link">🎨 My Edits</a>
+  <a href="#contact" class="pr-menu-link">📧 Contact</a>
+  <a href="#social" class="pr-menu-link">🌐 Social Media</a>
+</nav>
 </body></html>
