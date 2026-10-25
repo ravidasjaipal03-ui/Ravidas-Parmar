@@ -118,7 +118,12 @@ section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}
   padding: 15px 20px;
   background: #111;
   border-bottom: 1px solid #d4a017;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
   z-index: 1001;
 }
 
@@ -236,6 +241,17 @@ section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}
 
 body.pr-menu-open {
   overflow: hidden;
+}
+body {
+  padding-top: 75px;
+}
+
+.pr-navigation {
+  z-index: 1003;
+}
+
+.pr-menu-overlay {
+  z-index: 1002;
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
