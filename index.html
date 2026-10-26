@@ -61,12 +61,76 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
 </script>
+<style>
+/* Moving Poetry */
+.poetry-slider {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg, #090909, #21180c, #090909);
+    border-top: 1px solid #c9a34e;
+    border-bottom: 1px solid #c9a34e;
+    padding: 14px 0;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+}
+
+.poetry-track {
+    display: flex;
+    width: max-content;
+    animation: poetryMove 25s linear infinite;
+}
+
+.poetry-track span {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-right: 80px;
+    color: #f3d17a;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.8;
+    text-shadow: 0 0 8px rgba(255, 193, 70, 0.3);
+}
+
+@keyframes poetryMove {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateX(100vw);
+    }
+}
+
+@media (max-width: 600px) {
+    .poetry-track span {
+        font-size: 15px;
+    }
+}
+</style>
 </head>
 <body>
 <header class="pr-header">
   <a href="#home" class="pr-brand">Parmar Ravidas</a>
   <button class="pr-menu-btn" id="prMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="prNavigation" type="button"><span></span><span></span><span></span></button>
 </header>
+<!-- Moving Poetry Section -->
+<div class="poetry-slider">
+    <div class="poetry-track">
+
+        <span>
+            یُــوں تــو غَــلَــط نَــہــیــں چِــہــروں کــا تَــصَــوُّر 😭🥀
+            مَــگَــر لــوگ وَیــســے نَــہــیــں جَــیــســے نَــظَــر آتــے ہَــیــں۔۔۔!💔🥺
+            MuRsHiD Parmar Ravidas ✍🏻🩵💫
+        </span>
+
+        <span>
+            یُــوں تــو غَــلَــط نَــہــیــں چِــہــروں کــا تَــصَــوُّر 😭🥀
+            مَــگَــر لــوگ وَیــســے نَــہــیــں جَــیــسَــے نَــظَــر آتــے ہَــیــں۔۔۔!💔🥺
+            MuRsHiD Parmar Ravidas ✍🏻🩵💫
+        </span>
+
+    </div>
+</div>
+<!-- End Moving Poetry -->
 <div class="pr-menu-overlay" id="prOverlay"></div>
 <nav class="pr-navigation" id="prNavigation" aria-hidden="true">
   <div class="pr-menu-heading"><h2>Parmar Ravidas</h2><p>Welcome to My Website</p></div>
