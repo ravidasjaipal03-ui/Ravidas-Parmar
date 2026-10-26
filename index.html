@@ -1,443 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Parmar Ravidas | Photo & Video Editor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parmar Ravidas | Photo &amp; Video Editor</title>
 <meta name="description" content="Official website of Parmar Ravidas, a photo and video editing creator. Explore creative edits, visual designs, and official social media profiles.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/">
-<meta property="og:title" content="Parmar Ravidas | Photo & Video Editor">
+<meta property="og:title" content="Parmar Ravidas | Photo &amp; Video Editor">
 <meta property="og:description" content="Creative photo edits, video edits, and visual designs by Parmar Ravidas.">
-<meta property="og:type" content="website"><meta property="og:url" content="https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/">
 <meta name="theme-color" content="#101010">
 <style>
 :root{--bg:#0b0b0d;--panel:#171719;--gold:#e6bd68;--gold2:#ffdf91;--text:#f7f4ed;--muted:#bdb8ae;--line:#39352c}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#342719 0,transparent 36%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.65}a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:20px}.brand{font-weight:900;text-decoration:none;font-size:1.2rem;letter-spacing:.4px}.brand span{color:var(--gold)}.links{display:flex;gap:20px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--muted);font-size:.94rem}.links a:hover{color:var(--gold)}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:74px 0 85px}.eyebrow{color:var(--gold);font-weight:bold;letter-spacing:3px;text-transform:uppercase;font-size:.78rem}.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;margin:15px 0}.hero h1 span{color:var(--gold)}.lead{color:var(--muted);font-size:1.12rem;max-width:650px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;text-decoration:none;padding:12px 18px;border-radius:5px;border:1px solid var(--gold);font-weight:bold}.primary{background:linear-gradient(120deg,var(--gold),var(--gold2));color:#17120a}.visual{min-height:360px;border:1px solid #66502d;border-radius:16px;background:linear-gradient(145deg,rgba(230,189,104,.15),rgba(0,0,0,.2)),var(--panel);display:grid;place-items:center;text-align:center;padding:28px;box-shadow:0 25px 70px #0008}.monogram{width:155px;height:155px;border-radius:50%;display:grid;place-items:center;margin:auto auto 18px;border:2px solid var(--gold);font-size:3.1rem;font-weight:900;color:var(--gold);background:#100e0b;box-shadow:0 0 45px #e6bd6820}.visual small{display:block;color:var(--muted);margin-top:5px}
-section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}.intro{color:var(--muted);max-width:720px;margin-top:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.card{background:linear-gradient(145deg,#1b1a18,#121214);border:1px solid var(--line);padding:24px;border-radius:12px}.number{color:var(--gold);font-size:.8rem;letter-spacing:2px}.card h3{margin:8px 0}.card p{color:var(--muted);margin:0}.gallery-note{padding:28px;border:1px dashed #80683e;border-radius:12px;color:var(--muted);background:#16130e}.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.socials a{padding:11px 15px;text-decoration:none;border:1px solid var(--line);border-radius:6px}.socials a:hover{border-color:var(--gold);color:var(--gold)}.contact{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:28px;border:1px solid #66502d;border-radius:12px;background:linear-gradient(110deg,#292015,#151414)}footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:760px){nav{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;padding:42px 0 54px}.visual{min-height:280px}.grid{grid-template-columns:1fr}section{padding:34px 0}.contact{align-items:flex-start;flex-direction:column}}
-.rotating-logo {
-  animation: coinRotate 4s linear infinite;
-  transform-style: preserve-3d;
-}
-
-@keyframes coinRotate {
-  from {
-    transform: perspective(600px) rotateY(0deg);
-  }
-  to {
-    transform: perspective(600px) rotateY(360deg);
-  }
-}
-/* Parmar Ravidas 3D Photo Gallery */
-
-.parmar-gallery {
-  text-align: center;
-  padding: 30px 10px;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-.parmar-gallery h2 {
-  color: #d4a017;
-  font-size: 26px;
-}
-
-.card-deck {
-  position: relative;
-  width: min(280px, 82vw);
-  height: 350px;
-  margin: 30px auto;
-  perspective: 1000px;
-}
-
-.photo-card {
-  position: absolute;
-  inset: 0;
-  padding: 7px;
-  box-sizing: border-box;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #f8d568, #fff5cc, #b8860b);
-  box-shadow: 0 10px 25px #0003;
-  transition: transform .65s ease, opacity .65s ease;
-  transform-origin: left center;
-  cursor: pointer;
-}
-
-.photo-card img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.photo-card:nth-child(1) { z-index: 4; }
-.photo-card:nth-child(2) {
-  z-index: 3;
-  transform: scale(.96) translateY(7px);
-}
-.photo-card:nth-child(3) {
-  z-index: 2;
-  transform: scale(.92) translateY(14px);
-}
-.photo-card:nth-child(4) {
-  z-index: 1;
-  transform: scale(.88) translateY(21px);
-}
-
-.photo-card.swiped {
-  transform: perspective(1000px)
-    rotateY(-100deg) translateX(-120px) !important;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.next-photo {
-  border: none;
-  border-radius: 25px;
-  padding: 12px 25px;
-  background: linear-gradient(135deg, #f8d568, #d4a017);
-  color: #222;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#photoCount {
-  margin-top: 15px;
-  font-size: 14px;
-}
-/* Parmar Ravidas Modern Hamburger Menu */
-
-.pr-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #111;
-  border-bottom: 1px solid #d4a017;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  box-sizing: border-box;
-  z-index: 1001;
-}
-
-.pr-brand {
-  color: #f5c542;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.pr-menu-btn {
-  width: 45px;
-  height: 42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  background: #202020;
-  border: 1px solid #d4a017;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.pr-menu-btn span {
-  display: block;
-  width: 23px;
-  height: 2px;
-  background: #f5c542;
-  border-radius: 5px;
-  transition: .3s;
-}
-
-.pr-menu-btn.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.pr-menu-btn.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.pr-menu-btn.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-.pr-navigation {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(300px, 85vw);
-  height: 100%;
-  padding: 85px 20px 30px;
-  box-sizing: border-box;
-  background: linear-gradient(160deg, #171717, #080808);
-  border-left: 1px solid #d4a017;
-  box-shadow: -10px 0 35px #0005;
-  z-index: 1000;
-  transform: translateX(110%);
-  visibility: hidden;
-  transition: transform .35s ease, visibility .35s;
-  overflow-y: auto;
-}
-
-.pr-navigation.open {
-  transform: translateX(0);
-  visibility: visible;
-}
-
-.pr-menu-heading {
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #d4a01766;
-}
-
-.pr-menu-heading h2 {
-  color: #f5c542;
-  font-size: 23px;
-}
-
-.pr-menu-heading p {
-  color: #ccc;
-  font-size: 13px;
-}
-
-.pr-menu-link {
-  display: block;
-  padding: 14px 12px;
-  margin: 8px 0;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 9px;
-  transition: .25s;
-}
-
-.pr-menu-link:hover {
-  color: #f5c542;
-  background: #d4a01720;
-  padding-left: 20px;
-}
-
-.pr-menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: #0008;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-}
-
-.pr-menu-overlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-body.pr-menu-open {
-  overflow: hidden;
-}
-body {
-  padding-top: 75px;
-}
-
-.pr-navigation {
-  z-index: 1003;
-}
-
-.pr-menu-overlay {
-  z-index: 1002;
-}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;padding-top:75px;background:radial-gradient(ellipse at 75% 0%,#342719 0,transparent 36%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+header:not(.pr-header) nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:20px}
+.brand{font-weight:900;text-decoration:none;font-size:1.2rem;letter-spacing:.4px}.brand span{color:var(--gold)}
+.links{display:flex;gap:20px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--muted);font-size:.94rem}.links a:hover{color:var(--gold)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:74px 0 85px}
+.eyebrow{color:var(--gold);font-weight:bold;letter-spacing:3px;text-transform:uppercase;font-size:.78rem}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;margin:15px 0}.hero h1 span{color:var(--gold)}
+.lead{color:var(--muted);font-size:1.12rem;max-width:650px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;text-decoration:none;padding:12px 18px;border-radius:5px;border:1px solid var(--gold);font-weight:bold}
+.primary{background:linear-gradient(120deg,var(--gold),var(--gold2));color:#17120a}
+.visual{min-height:360px;border:1px solid #66502d;border-radius:16px;background:linear-gradient(145deg,rgba(230,189,104,.15),rgba(0,0,0,.2)),var(--panel);display:grid;place-items:center;text-align:center;padding:28px;box-shadow:0 25px 70px #0008}
+.monogram{width:155px;height:155px;border-radius:50%;display:grid;place-items:center;margin:auto auto 18px;border:2px solid var(--gold);font-size:3.1rem;font-weight:900;color:var(--gold);background:#100e0b;box-shadow:0 0 45px #e6bd6820}
+.visual small{display:block;color:var(--muted);margin-top:5px}
+section{padding:48px 0}.title{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 8px}.intro{color:var(--muted);max-width:720px;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.card{background:linear-gradient(145deg,#1b1a18,#121214);border:1px solid var(--line);padding:24px;border-radius:12px}
+.number{color:var(--gold);font-size:.8rem;letter-spacing:2px}.card h3{margin:8px 0}.card p{color:var(--muted);margin:0}
+.gallery-note{padding:28px;border:1px dashed #80683e;border-radius:12px;color:var(--muted);background:#16130e}
+.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.socials a{padding:11px 15px;text-decoration:none;border:1px solid var(--line);border-radius:6px}.socials a:hover{border-color:var(--gold);color:var(--gold)}
+.contact{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:28px;border:1px solid #66502d;border-radius:12px;background:linear-gradient(110deg,#292015,#151414)}
+footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rotating-logo{animation:coinRotate 4s linear infinite;transform-style:preserve-3d}
+@keyframes coinRotate{from{transform:perspective(600px) rotateY(0deg)}to{transform:perspective(600px) rotateY(360deg)}}
+.parmar-gallery{text-align:center;padding:30px 10px;font-family:Arial,sans-serif;overflow:hidden}.parmar-gallery h2{color:#d4a017;font-size:26px}
+.card-deck{position:relative;width:min(280px,82vw);height:350px;margin:30px auto;perspective:1000px}
+.photo-card{position:absolute;inset:0;padding:7px;border-radius:18px;background:linear-gradient(135deg,#f8d568,#fff5cc,#b8860b);box-shadow:0 10px 25px #0003;transition:transform .65s ease,opacity .65s ease;transform-origin:left center;cursor:pointer}
+.photo-card img{width:100%;height:100%;display:block;object-fit:cover;border-radius:12px}
+.photo-card:nth-child(1){z-index:4}.photo-card:nth-child(2){z-index:3;transform:scale(.96) translateY(7px)}.photo-card:nth-child(3){z-index:2;transform:scale(.92) translateY(14px)}.photo-card:nth-child(4){z-index:1;transform:scale(.88) translateY(21px)}
+.photo-card.swiped{transform:perspective(1000px) rotateY(-100deg) translateX(-120px)!important;opacity:0;pointer-events:none}
+.next-photo{border:none;border-radius:25px;padding:12px 25px;background:linear-gradient(135deg,#f8d568,#d4a017);color:#222;font-size:16px;font-weight:bold;cursor:pointer}#photoCount{margin-top:15px;font-size:14px}
+.pr-header{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#111;border-bottom:1px solid #d4a017;position:fixed;top:0;left:0;right:0;width:100%;z-index:1004}
+.pr-brand{color:#f5c542;font-size:20px;font-weight:bold;text-decoration:none}
+.pr-menu-btn{width:45px;height:42px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;background:#202020;border:1px solid #d4a017;border-radius:10px;cursor:pointer}
+.pr-menu-btn span{display:block;width:23px;height:2px;background:#f5c542;border-radius:5px;transition:.3s}
+.pr-menu-btn.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}.pr-menu-btn.active span:nth-child(2){opacity:0}.pr-menu-btn.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.pr-navigation{display:block;position:fixed;top:0;right:0;width:min(300px,85vw);height:100%;padding:85px 20px 30px;background:linear-gradient(160deg,#171717,#080808);border-left:1px solid #d4a017;box-shadow:-10px 0 35px #0005;z-index:1003;transform:translateX(110%);visibility:hidden;transition:transform .35s ease,visibility .35s;overflow-y:auto}
+.pr-navigation.open{transform:translateX(0);visibility:visible}.pr-menu-heading{padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid #d4a01766}
+.pr-menu-heading h2{color:#f5c542;font-size:23px}.pr-menu-heading p{color:#ccc;font-size:13px}
+.pr-menu-link{display:block;padding:14px 12px;margin:8px 0;color:#fff;text-decoration:none;border-radius:9px;transition:.25s}.pr-menu-link:hover{color:#f5c542;background:#d4a01720;padding-left:20px}
+.pr-menu-overlay{position:fixed;inset:0;background:#0008;z-index:1002;opacity:0;visibility:hidden;transition:.3s}.pr-menu-overlay.show{opacity:1;visibility:visible}body.pr-menu-open{overflow:hidden}
+@media(max-width:760px){header:not(.pr-header) nav{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;padding:42px 0 54px}.visual{min-height:280px}.grid{grid-template-columns:1fr}section{padding:34px 0}.contact{align-items:flex-start;flex-direction:column}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
-// Parmar Ravidas Photo Card Animation
-
-(() => {
-  const deck = document.getElementById("cardDeck");
-
-  if (!deck || deck.dataset.initialized) return;
-  deck.dataset.initialized = "true";
-
-  const cards = Array.from(
-    deck.querySelectorAll(".photo-card")
-  );
-
-  const button = document.getElementById("nextPhoto");
-  const counter = document.getElementById("photoCount");
-
-  let current = 0;
-
-  function updateCards() {
-    cards.forEach((card, index) => {
-      const removed = index < current;
-      card.classList.toggle("swiped", removed);
-
-      if (!removed) {
-        const depth = index - current;
-
-        card.style.zIndex = cards.length - depth;
-        card.style.transform =
-          `scale(${1 - depth * 0.04}) translateY(${depth * 7}px)`;
-      }
-    });
-
-    counter.textContent = current < cards.length
-      ? `Photo ${current + 1} of ${cards.length}`
-      : "All photos viewed! 🎉";
-
-    button.textContent = current >= cards.length
-      ? "↻ View Again"
-      : current === cards.length - 1
-        ? "Finish Gallery ✓"
-        : "Next Photo ➜";
-  }
-
-  function nextCard() {
-    current = current >= cards.length ? 0 : current + 1;
-    updateCards();
-  }
-
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      if (!card.classList.contains("swiped")) {
-        nextCard();
-      }
-    });
-  });
-
-  button.addEventListener("click", nextCard);
-
-  updateCards();
-})();
-// Parmar Ravidas Hamburger Menu
-
-(() => {
-  const btn = document.getElementById("prMenuBtn");
-  const nav = document.getElementById("prNavigation");
-  const overlay = document.getElementById("prOverlay");
-
-  if (!btn || !nav || !overlay || btn.dataset.ready) return;
-  btn.dataset.ready = "true";
-
-  function closeMenu() {
-    btn.classList.remove("active");
-    nav.classList.remove("open");
-    overlay.classList.remove("show");
-    document.body.classList.remove("pr-menu-open");
-
-    btn.setAttribute("aria-expanded", "false");
-    btn.setAttribute("aria-label", "Open menu");
-    nav.setAttribute("aria-hidden", "true");
-  }
-
-  function openMenu() {
-    btn.classList.add("active");
-    nav.classList.add("open");
-    overlay.classList.add("show");
-    document.body.classList.add("pr-menu-open");
-
-    btn.setAttribute("aria-expanded", "true");
-    btn.setAttribute("aria-label", "Close menu");
-    nav.setAttribute("aria-hidden", "false");
-  }
-
-  btn.addEventListener("click", () => {
-    if (nav.classList.contains("open")) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  overlay.addEventListener("click", closeMenu);
-
-  nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closeMenu();
-  });
-})();
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
 </script>
 </head>
 <body>
-<img src="parmar.png" alt="Parmar Ravidas Logo"
-     class="rotating-logo"
-     style="width:150px; height:auto; display:block; margin:20px auto;">
+<header class="pr-header">
+  <a href="#home" class="pr-brand">Parmar Ravidas</a>
+  <button class="pr-menu-btn" id="prMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="prNavigation" type="button"><span></span><span></span><span></span></button>
+</header>
+<div class="pr-menu-overlay" id="prOverlay"></div>
+<nav class="pr-navigation" id="prNavigation" aria-hidden="true">
+  <div class="pr-menu-heading"><h2>Parmar Ravidas</h2><p>Welcome to My Website</p></div>
+  <a href="#home" class="pr-menu-link">🏠 Home</a><a href="#about" class="pr-menu-link">👤 About Me</a>
+  <a href="#services" class="pr-menu-link">💻 My Skills</a><a href="#work" class="pr-menu-link">🎨 My Work</a>
+  <a href="#gallery" class="pr-menu-link">🖼️ Gallery</a><a href="#contact" class="pr-menu-link">📧 Contact Me</a><a href="#social" class="pr-menu-link">🌐 Social Media</a>
+</nav>
+<img src="parmar.png" alt="Parmar Ravidas Logo" class="rotating-logo" style="width:150px;height:auto;display:block;margin:20px auto;">
 <header class="wrap"><nav><a class="brand" href="#home">PARMAR <span>RAVIDAS</span></a><div class="links"><a href="#about">About</a><a href="#services">My Skills</a><a href="#work">My Work</a><a href="#social">Social Media</a><a href="#contact">Contact</a></div></nav></header>
 <main>
-<section class="wrap hero" id="home"><div><div class="eyebrow">Official Personal Website</div><h1>Parmar <span>Ravidas</span></h1><p class="lead">Photo & Video Editing Creator</p><p class="lead">Welcome to my creative world. Explore my photo edits, video projects, visual designs, and official social media profiles—all in one place.</p><div class="buttons"><a class="btn primary" href="#work">Explore My Work</a><a class="btn" href="#social">Follow Me</a></div></div><aside class="visual"><div><div class="monogram">SR</div><strong>PARMAR RAVIDAS</strong><small>PHOTO EDITING · VIDEO EDITING · CREATIVE DESIGNS</small><small>Replace this SR circle with your own photo if you wish.</small></div></aside></section>
+<section class="wrap hero" id="home"><div><div class="eyebrow">Official Personal Website</div><h1>Parmar <span>Ravidas</span></h1><p class="lead">Photo &amp; Video Editing Creator</p><p class="lead">Welcome to my creative world. Explore my photo edits, video projects, visual designs, and official social media profiles—all in one place.</p><div class="buttons"><a class="btn primary" href="#work">Explore My Work</a><a class="btn" href="#social">Follow Me</a></div></div><aside class="visual"><div><div class="monogram">SR</div><strong>PARMAR RAVIDAS</strong><small>PHOTO EDITING · VIDEO EDITING · CREATIVE DESIGNS</small><small>Replace this SR circle with your own photo if you wish.</small></div></aside></section>
 <section class="wrap" id="about"><h2 class="title">About Me</h2><p class="intro">A short introduction to the person behind the edits.</p><div class="card"><p>Hello, I'm Parmar Ravidas. I enjoy photo editing, video editing, and creating visual designs. This website is my official online space where visitors can learn about my creative interests and find my public social media pages.</p><p style="color:var(--muted)">You can personalize this section with your real background, hometown, achievements, or editing experience—only share details you want to make public.</p></div></section>
 <section class="wrap" id="services"><h2 class="title">My Skills</h2><p class="intro">Creative work I enjoy doing.</p><div class="grid"><article class="card"><div class="number">01 / PHOTO</div><h3>Photo Editing</h3><p>Portrait edits, photo cleanup, creative backgrounds, posters, and name designs.</p></article><article class="card"><div class="number">02 / VIDEO</div><h3>Video Editing</h3><p>Short videos, reels, transitions, effects, and visual storytelling.</p></article><article class="card"><div class="number">03 / DESIGN</div><h3>Creative Designs</h3><p>Personal branding, social media graphics, logos, and digital artwork.</p></article></div></section>
 <section class="wrap" id="work"><h2 class="title">My Work</h2><p class="intro">Show visitors examples of your best edits.</p><div class="gallery-note">Your portfolio gallery goes here. To add your work, upload image files alongside this page and add image cards in the HTML. Use only photos or videos you have permission to publish.</div></section>
 <section class="wrap" id="social"><h2 class="title">Find Me Online</h2><p class="intro">Follow my official social media profiles.</p><div class="socials"><a href="https://www.facebook.com/itz.parmar524" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.instagram.com/mister.parmar524/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@parmar_jani.786" target="_blank" rel="noopener noreferrer">TikTok ↗</a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div></section>
-<section class="wrap" id="contact"><div class="contact"><div><h2 class="title" style="margin:0">Contact</h2><p class="intro" style="margin:4px 0 0">For creative enquiries, add a public email address you are comfortable sharing.</p></div><a class="btn primary" href="mailto: ravidasjaipal03@gmail.com">Email Me</a></div></section>
-</main><footer class="wrap"><span>© <span id="year"></span> Parmar Ravidas</span><span>Official Personal Website</span></footer><script>document.getElementById('year').textContent=new Date().getFullYear()
-<!-- Parmar Ravidas Photo Gallery -->
-<section class="parmar-gallery">
-  <h2>📸 Parmar Ravidas Gallery</h2>
-  <p>Tap a card to see the next photo!</p>
-
-  <div class="card-deck" id="cardDeck">
-    <div class="photo-card">
-      <img src="boy1.png" alt="Boy Photo">
-    </div>
-
-    <div class="photo-card">
-      <img src="girl1.png" alt="Girl Photo">
-    </div>
-
-    <div class="photo-card">
-      <img src="sandya1.png" alt="Sandya Photo 1">
-    </div>
-
-    <div class="photo-card">
-      <img src="sandya2.png" alt="Sandya Photo 2">
-    </div>
-  </div>
-
-  <button type="button" class="next-photo" id="nextPhoto">
-    Next Photo ➜
-  </button>
-
-  <p id="photoCount">Photo 1 of 4</p>
-</section>
-<!-- Parmar Ravidas Hamburger Menu -->
-
-<header class="pr-header">
-  <a href="#home" class="pr-brand">Parmar Ravidas</a>
-
-  <button class="pr-menu-btn"
-          id="prMenuBtn"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="prNavigation">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</header>
-
-<div class="pr-menu-overlay" id="prOverlay"></div>
-
-<nav class="pr-navigation" id="prNavigation" aria-hidden="true">
-  <div class="pr-menu-heading">
-  <h2>Parmar Ravidas</h2>
-  <p>Welcome to My Website</p>
-</div>
-
-<a href="#home" class="pr-menu-link">🏠 Home</a>
-<a href="#about" class="pr-menu-link">👤 About Me</a>
-<a href="#skills" class="pr-menu-link">💻 My Skills</a>
-<a href="#work" class="pr-menu-link">🎨 My Work</a>
-<a href="#gallery" class="pr-menu-link">🖼️ Gallery</a>
-<a href="#contact" class="pr-menu-link">📧 Contact Me</a>
-<a href="#social" class="pr-menu-link">🌐 Social Media</a>
-</nav>
-</body></html>
+<section class="wrap" id="contact"><div class="contact"><div><h2 class="title" style="margin:0">Contact</h2><p class="intro" style="margin:4px 0 0">For creative enquiries, add a public email address you are comfortable sharing.</p></div><a class="btn primary" href="mailto:ravidasjaipal03@gmail.com">Email Me</a></div></section>
+<section class="parmar-gallery" id="gallery"><h2>📸 Parmar Ravidas Gallery</h2><p>Tap a card to see the next photo!</p><div class="card-deck" id="cardDeck"><div class="photo-card"><img src="boy1.png" alt="Boy Photo"></div><div class="photo-card"><img src="girl1.png" alt="Girl Photo"></div><div class="photo-card"><img src="sandya1.png" alt="Sandya Photo 1"></div><div class="photo-card"><img src="sandya2.png" alt="Sandya Photo 2"></div></div><button type="button" class="next-photo" id="nextPhoto">Next Photo ➜</button><p id="photoCount">Photo 1 of 4</p></section>
+</main>
+<footer class="wrap"><span>© <span id="year"></span> Parmar Ravidas</span><span>Official Personal Website</span></footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+(() => {
+  const deck = document.getElementById("cardDeck"), button = document.getElementById("nextPhoto"), counter = document.getElementById("photoCount");
+  if (!deck || !button || !counter) return;
+  const cards = Array.from(deck.querySelectorAll(".photo-card"));
+  let current = 0;
+  function updateCards() {
+    cards.forEach((card,index) => {
+      const removed = index < current;
+      card.classList.toggle("swiped",removed);
+      if (!removed) { const depth=index-current; card.style.zIndex=cards.length-depth; card.style.transform=`scale(${1-depth*.04}) translateY(${depth*7}px)`; }
+    });
+    counter.textContent = current < cards.length ? `Photo ${current+1} of ${cards.length}` : "All photos viewed! 🎉";
+    button.textContent = current >= cards.length ? "↻ View Again" : current === cards.length-1 ? "Finish Gallery ✓" : "Next Photo ➜";
+  }
+  function nextCard(){current=current>=cards.length?0:current+1;updateCards();}
+  cards.forEach(card=>card.addEventListener("click",()=>{if(!card.classList.contains("swiped"))nextCard();}));
+  button.addEventListener("click",nextCard); updateCards();
+})();
+(() => {
+  const btn=document.getElementById("prMenuBtn"), nav=document.getElementById("prNavigation"), overlay=document.getElementById("prOverlay");
+  if(!btn||!nav||!overlay)return;
+  function closeMenu(){btn.classList.remove("active");nav.classList.remove("open");overlay.classList.remove("show");document.body.classList.remove("pr-menu-open");btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Open menu");nav.setAttribute("aria-hidden","true");}
+  function openMenu(){btn.classList.add("active");nav.classList.add("open");overlay.classList.add("show");document.body.classList.add("pr-menu-open");btn.setAttribute("aria-expanded","true");btn.setAttribute("aria-label","Close menu");nav.setAttribute("aria-hidden","false");}
+  btn.addEventListener("click",()=>nav.classList.contains("open")?closeMenu():openMenu());
+  overlay.addEventListener("click",closeMenu);
+  nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMenu));
+  document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu();});
+})();
+</script>
+</body>
+</html>
