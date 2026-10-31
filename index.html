@@ -274,45 +274,88 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
   <a href="#gallery" class="pr-menu-link">🖼️ Gallery</a><a href="#contact" class="pr-menu-link">📧 Contact Me</a><a href="#social" class="pr-menu-link">🌐 Social Media</a>
 </nav>
 <img src="parmar.png" alt="Parmar Ravidas Logo" class="rotating-logo" style="width:150px;height:auto;display:block;margin:20px auto;">
-<!-- Send Gift Section -->
+<!-- PARMAR RAVIDAS GIFT SYSTEM -->
+
 <div class="gift-section">
 
-    <button class="gift-button"
-        onclick="document.getElementById('giftModal').style.display='flex'">
-        🎁 Send Gift 💚
+  <button class="gift-button"
+    onclick="openGift()">
+    🎁 SEND GIFT
+  </button>
+
+  <p class="gift-note">
+    Support Parmar Ravidas ❤️
+  </p>
+
+</div>
+
+<div class="gift-modal" id="giftModal"
+  onclick="if(event.target===this)closeGift()">
+
+  <div class="gift-modal-content">
+
+    <h2>🎁 Send Gift</h2>
+
+    <p>Support Parmar Ravidas</p>
+
+    <input
+      class="gift-input"
+      type="number"
+      id="giftAmount"
+      min="1"
+      placeholder="Enter Amount (PKR)"
+    >
+
+    <h3>💳 Select Payment Method</h3>
+
+    <button class="payment-option"
+      onclick="showPayment('Easypaisa')">
+      🟢 Easypaisa
     </button>
 
-    <p class="gift-note">
-        Support Parmar Ravidas ❤️
-    </p>
+    <button class="payment-option"
+      onclick="showPayment('JazzCash')">
+      🔴 JazzCash
+    </button>
 
-</div>
+    <button class="payment-option"
+      onclick="showPayment('Bank Transfer')">
+      🏦 Bank Transfer
+    </button>
 
-<!-- Easypaisa QR Popup -->
-<div class="gift-modal" id="giftModal"
-     onclick="if(event.target===this)this.style.display='none'">
+    <button class="payment-option"
+      onclick="showPayment('QR Payment')">
+      📱 Scan QR Code
+    </button>
 
-    <div class="gift-modal-content">
+    <div class="payment-details"
+      id="paymentDetails">
 
-        <h2>💚 Send Gift</h2>
+      <h3 id="paymentTitle"></h3>
 
-        <p>Support Parmar Ravidas</p>
+      <p id="paymentInstructions"></p>
 
-        <img
-            src="easypaisa-qr.jpg"
-            alt="Easypaisa Payment QR Code"
-            class="gift-qr">
-
-        <p>Scan this QR code to send your gift.</p>
-
-        <button class="gift-close"
-            onclick="document.getElementById('giftModal').style.display='none'">
-            Close ✖
-        </button>
+      <img
+        id="giftQR"
+        class="gift-qr"
+        src="easypaisa-qr.jpg"
+        alt="Payment QR"
+        style="display:none"
+      >
 
     </div>
+
+    <br>
+
+    <button class="gift-close"
+      onclick="closeGift()">
+      Close ✖
+    </button>
+
+  </div>
 </div>
-<!-- End Send Gift Section -->
+
+<!-- END GIFT SYSTEM -->
 <header class="wrap"><nav><a class="brand" href="#home">PARMAR <span>RAVIDAS</span></a><div class="links"><a href="#about">About</a><a href="#services">My Skills</a><a href="#work">My Work</a><a href="#social">Social Media</a><a href="#contact">Contact</a></div></nav></header>
 <main>
 <section class="wrap hero" id="home"><div><div class="eyebrow">Official Personal Website</div><h1>Parmar <span>Ravidas</span></h1><p class="lead">Photo &amp; Video Editing Creator</p><p class="lead">Welcome to my creative world. Explore my photo edits, video projects, visual designs, and official social media profiles—all in one place.</p><div class="buttons"><a class="btn primary" href="#work">Explore My Work</a><a class="btn" href="#social">Follow Me</a></div></div><aside class="visual"><div><div class="monogram">SR</div><strong>PARMAR RAVIDAS</strong><small>PHOTO EDITING · VIDEO EDITING · CREATIVE DESIGNS</small><small>Replace this SR circle with your own photo if you wish.</small></div></aside></section>
