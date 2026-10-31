@@ -424,6 +424,63 @@ document.getElementById('year').textContent = new Date().getFullYear();
   nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMenu));
   document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu();});
 })();
+function openGift() {
+  document.getElementById("giftModal")
+    .style.display = "flex";
+}
+
+function closeGift() {
+  document.getElementById("giftModal")
+    .style.display = "none";
+}
+
+function showPayment(method) {
+
+  const amount = document.getElementById("giftAmount").value;
+
+  if (!amount || Number(amount) <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+  const details =
+    document.getElementById("paymentDetails");
+
+  const title =
+    document.getElementById("paymentTitle");
+
+  const instructions =
+    document.getElementById("paymentInstructions");
+
+  const qr =
+    document.getElementById("giftQR");
+
+  title.textContent = method;
+  qr.style.display = "none";
+
+  const messages = {
+    "Easypaisa":
+      "Easypaisa account details will appear here after authorized account setup.",
+
+    "JazzCash":
+      "JazzCash account details will appear here after authorized account setup.",
+
+    "Bank Transfer":
+      "Bank account details will appear here after authorized account setup.",
+
+    "QR Payment":
+      "Scan the authorized payment QR code to send your gift."
+  };
+
+  instructions.textContent =
+    messages[method];
+
+  if (method === "QR Payment") {
+    qr.style.display = "block";
+  }
+
+  details.style.display = "block";
+  }
 </script>
 </body>
 </html>
