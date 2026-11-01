@@ -571,60 +571,35 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
 </section>
 
 <!-- END VIDEO GALLERY -->
-<!-- PARMAR RAVIDAS EDITING ORDER SYSTEM -->
+<a href="#editingOrder">📸 Editing Order</a>
 
 <section class="order-section" id="editingOrder">
 
     <h2>📸 Order Photo Editing</h2>
-
-    <p>Send Your Photo For Professional Editing ❤️</p>
+    <p>Send Your Editing Details ❤️</p>
 
     <form class="order-form" id="editingOrderForm">
 
         <label>Your Full Name</label>
-        <input
-            type="text"
-            name="name"
+        <input type="text" name="name"
             placeholder="Enter Your Name"
-            maxlength="80"
-            required
-        >
+            maxlength="80" required>
 
         <label>Your Phone Number</label>
-        <input
-            type="tel"
-            name="phone"
+        <input type="tel" name="phone"
             placeholder="Enter Your Phone Number"
-            maxlength="20"
-            required
-        >
-
-        <label>Upload Your Photo</label>
-        <input
-            type="file"
-            name="photo"
-            accept="image/jpeg,image/png,image/webp"
-            required
-        >
+            maxlength="20" required>
 
         <label>Editing Details</label>
-        <textarea
-            name="details"
-            rows="4"
-            maxlength="1000"
+        <textarea name="details"
+            rows="4" maxlength="1000"
             placeholder="Tell me what editing you need..."
-            required
-        ></textarea>
+            required></textarea>
 
         <label>
-            <input
-                type="checkbox"
-                name="consent"
-                value="yes"
-                required
-                style="width:auto"
-            >
-            I confirm that I have permission to share this photo.
+            <input type="checkbox" name="consent"
+                required style="width:auto">
+            I agree to submit these details for my editing order.
         </label>
 
         <button type="submit" class="order-submit">
@@ -634,10 +609,7 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
         <p id="orderStatus"></p>
 
     </form>
-
 </section>
-
-<!-- END EDITING ORDER SYSTEM -->
 </main>
 <footer class="wrap"><span>© <span id="year"></span> Parmar Ravidas</span><span>Official Personal Website</span></footer>
 <script>
