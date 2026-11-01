@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parmar Ravidas Admin Dashboard</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #080808;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #151515;
+  padding: 22px 12px;
+  text-align: center;
+  border-bottom: 2px solid #d4af37;
+}
+
+header h1 {
+  color: #f5c542;
+  margin: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 15px;
+}
+
+.card {
+  background: #171717;
+  border: 1px solid #d4af37;
+  border-radius: 15px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+h2 {
+  color: #f5c542;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  background: #080808;
+  color: white;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #f5c542;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 12px;
+}
+
+.stat {
+  background: #242424;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #d4af37;
+}
+
+.stat strong {
+  display: block;
+  color: #f5c542;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.order {
+  background: #242424;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  padding: 17px;
+  margin: 15px 0;
+  overflow-wrap: anywhere;
+}
+
+.order p {
+  line-height: 1.6;
+}
+
+.status {
+  color: #f5c542;
+  font-weight: bold;
+}
+
+#message {
+  color: #f5c542;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>👑 PARMAR RAVIDAS</h1>
+<p>Private Admin Dashboard</p>
+</header>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div class="card" id="loginBox">
+<h2>🔐 Admin Login</h2>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Admin Password"
+autocomplete="current-password"
+>
+
+<button onclick="login()">LOGIN</button>
+
+<p id="message"></p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+
+<div class="card">
+<h2>📊 Dashboard Overview</h2>
+
+<div class="stats">
+
+<div class="stat">
+Total Orders
+<strong id="total">0</strong>
+</div>
+
+<div class="stat">
+New Orders
+<strong id="new">0</strong>
+</div>
+
+<div class="stat">
+Completed
+<strong id="completed">0</strong>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>📋 Customer Orders</h2>
+
+<button onclick="loadOrders()">🔄 Refresh Orders</button>
+<button onclick="logout()">Logout</button>
+
+<div id="orders">
+Loading...
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+const API =
+"https://parmar-contact.ravidasjaipal03.workers.dev";
+
+let token = sessionStorage.getItem("adminToken");
+
+async function login() {
+  const password =
+    document.getElementById("password").value;
+
+  const message =
+    document.getElementById("message");
+
+  if (!password) {
+    message.textContent = "Enter your password.";
+    return;
+  }
+
+  message.textContent = "Checking login...";
+
+  try {
+    const response = await fetch(API + "/admin/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ password })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      message.textContent =
+        data.error || "Login failed.";
+      return;
+    }
+
+    token = data.token;
+
+    sessionStorage.setItem("adminToken", token);
+
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+
+    loadOrders();
+
+  } catch (error) {
+    message.textContent =
+      "Connection error. Check your internet.";
+  }
+}
+
+async function loadOrders() {
+  const box = document.getElementById("orders");
+
+  box.textContent = "Loading orders...";
+
+  try {
+    const response = await fetch(API + "/admin/orders", {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    });
+
+    const data = await response.json();
+
+    if (response.status === 401) {
+      logout();
+      alert("Please login again.");
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(data.error || "Could not load orders.");
+    }
+
+    const orders = data.orders || [];
+
+    document.getElementById("total").textContent =
+      orders.length;
+
+    document.getElementById("new").textContent =
+      orders.filter(o => o.status === "New").length;
+
+    document.getElementById("completed").textContent =
+      orders.filter(o => o.status === "Completed").length;
+
+    box.replaceChildren();
+
+    if (!orders.length) {
+      box.textContent = "No orders found yet.";
+      return;
+    }
+
+    orders.forEach(order => {
+      const card = document.createElement("div");
+      card.className = "order";
+
+      function addLine(label, value) {
+        const p = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = label + ": ";
+        p.append(strong, document.createTextNode(value || "-"));
+        card.appendChild(p);
+      }
+
+      addLine("Order Number", "#" + order.id);
+      addLine("Customer Name", order.name);
+      addLine("Phone Number", order.phone);
+      addLine("Editing Details", order.details);
+      addLine("Date", order.created_at);
+
+      const status = document.createElement("p");
+      status.className = "status";
+      status.textContent = "Status: " + order.status;
+      card.appendChild(status);
+
+      const button = document.createElement("button");
+
+      button.textContent =
+        order.status === "Completed"
+          ? "Mark as New"
+          : "Mark Completed";
+
+      button.addEventListener("click", () => {
+        updateOrder(
+          order.id,
+          order.status === "Completed" ? "New" : "Completed"
+        );
+      });
+
+      card.appendChild(button);
+      box.appendChild(card);
+    });
+
+  } catch (error) {
+    box.textContent = error.message;
+  }
+}
+
+async function updateOrder(id, status) {
+  try {
+    const response = await fetch(
+      API + "/admin/orders/" + id,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({ status })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Update failed.");
+    }
+
+    loadOrders();
+
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem("adminToken");
+  token = null;
+
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("loginBox").classList.remove("hidden");
+  document.getElementById("password").value = "";
+  document.getElementById("message").textContent = "";
+}
+
+if (token) {
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+  loadOrders();
+}
+</script>
+
+</body>
+</html>
