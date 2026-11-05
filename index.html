@@ -360,6 +360,25 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     text-align: center;
     margin-top: 15px;
 }
+.whatsapp-button {
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 3px 12px #0005;
+}
+
+.whatsapp-button img {
+  width: 42px;
+  height: 42px;
+}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -743,5 +762,18 @@ orderForm.addEventListener("submit", async function(e) {
     button.disabled = false;
 });
 </script>
+<!-- WhatsApp Floating Button -->
+<a
+  href="https://wa.me/923402403905"
+  class="whatsapp-button"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat on WhatsApp"
+>
+  <img
+    src="https://cdn.simpleicons.org/whatsapp/25D366"
+    alt="WhatsApp"
+  >
+</a>
 </body>
 </html>
