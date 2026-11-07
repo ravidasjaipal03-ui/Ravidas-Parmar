@@ -220,6 +220,44 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     color: #f5c542;
     margin: 14px 0 5px;
 }
+.profile-photo-wrap {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 50%;
+    isolation: isolate;
+}
+
+.profile-photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    background: conic-gradient(
+        red, orange, yellow, lime,
+        cyan, blue, violet, red
+    );
+    animation: rainbowSpin 3s linear infinite;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.profile-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid white;
+    display: block;
+}
+
+@keyframes rainbowSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
@@ -560,7 +598,17 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
 <!-- END GIFT SYSTEM -->
 <header class="wrap"><nav><a class="brand" href="#home">PARMAR <span>RAVIDAS</span></a><div class="links"><a href="#about">About</a><a href="#services">My Skills</a><a href="#work">My Work</a><a href="#social">Social Media</a><a href="#contact">Contact</a></div></nav></header>
 <main>
-<section class="wrap hero" id="home"><div><div class="eyebrow">Official Personal Website</div><h1>Parmar <span>Ravidas</span></h1><p class="lead">Photo &amp; Video Editing Creator</p><p class="lead">Welcome to my creative world. Explore my photo edits, video projects, visual designs, and official social media profiles—all in one place.</p><div class="buttons"><a class="btn primary" href="#work">Explore My Work</a><a class="btn" href="#social">Follow Me</a></div></div><aside class="visual"><div><div class="monogram">SR</div><strong>PARMAR RAVIDAS</strong><small>PHOTO EDITING · VIDEO EDITING · CREATIVE DESIGNS</small><small>Replace this SR circle with your own photo if you wish.</small></div></aside></section>
+<section class="wrap hero" id="home"><div><div class="eyebrow">Official Personal Website</div><h1>Parmar <span>Ravidas</span></h1><p class="lead">Photo &amp; Video Editing Creator</p><p class="lead">Welcome to my creative world. Explore my photo edits, video projects, visual designs, and official social media profiles—all in one place.</p><div class="buttons"><a class="btn primary" href="#work">Explore My Work</a><a class="btn" href="#social">Follow Me</a></div></div><aside class="visual">
+    <div>
+        <div class="profile-photo-wrap">
+            <img src="profile.png" alt="Parmar Ravidas">
+        </div>
+
+        <strong>PARMAR RAVIDAS</strong>
+
+        <small>PHOTO EDITING · VIDEO EDITING · CREATIVE DESIGNS</small>
+    </div>
+</aside></section>
 <section class="wrap" id="about"><h2 class="title">About Me</h2><p class="intro">A short introduction to the person behind the edits.</p><div class="card"><p>Hello, I'm Parmar Ravidas. I enjoy photo editing, video editing, and creating visual designs. This website is my official online space where visitors can learn about my creative interests and find my public social media pages.</p><p style="color:var(--muted)">You can personalize this section with your real background, hometown, achievements, or editing experience—only share details you want to make public.</p></div></section>
 <section class="wrap" id="services"><h2 class="title">My Skills</h2><p class="intro">Creative work I enjoy doing.</p><div class="grid"><article class="card"><div class="number">01 / PHOTO</div><h3>Photo Editing</h3><p>Portrait edits, photo cleanup, creative backgrounds, posters, and name designs.</p></article><article class="card"><div class="number">02 / VIDEO</div><h3>Video Editing</h3><p>Short videos, reels, transitions, effects, and visual storytelling.</p></article><article class="card"><div class="number">03 / DESIGN</div><h3>Creative Designs</h3><p>Personal branding, social media graphics, logos, and digital artwork.</p></article></div></section>
 <section class="wrap" id="work"><h2 class="title">My Work</h2><p class="intro">Show visitors examples of your best edits.</p><div class="gallery-note">Your portfolio gallery goes here. To add your work, upload image files alongside this page and add image cards in the HTML. Use only photos or videos you have permission to publish.</div></section>
