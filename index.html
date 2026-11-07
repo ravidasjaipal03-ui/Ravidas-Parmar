@@ -396,6 +396,44 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     color: #111;
     box-shadow: 0 0 12px rgba(230, 189, 104, 0.4);
 }
+/* Red and Blue Neon Border Animation */
+.visual {
+    position: relative;
+    isolation: isolate;
+    border: 2px solid transparent !important;
+    border-radius: 25px;
+    background:
+        linear-gradient(#171719, #171719) padding-box,
+        conic-gradient(
+            from var(--neon-angle),
+            #ff0000,
+            #ff0000,
+            transparent 25%,
+            #008cff,
+            #008cff,
+            transparent 65%,
+            #ff0000
+        ) border-box;
+    animation: neonRotate 3s linear infinite;
+}
+
+@property --neon-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes neonRotate {
+    to {
+        --neon-angle: 360deg;
+    }
+}
+
+.visual {
+    box-shadow:
+        0 0 10px rgba(255, 0, 0, 0.35),
+        0 0 18px rgba(0, 140, 255, 0.35);
+}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
