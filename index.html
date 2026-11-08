@@ -440,13 +440,21 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     margin: 20px auto;
     position: relative;
     border-radius: 50%;
-    padding: 5px;
+    isolation: isolate;
+}
+
+.profile-photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
     background: conic-gradient(
         red, orange, yellow, lime,
         cyan, blue, violet, red
     );
     animation: rainbowSpin 3s linear infinite;
-    box-shadow: 0 0 20px #00d9ff, 0 0 30px #ff00aa;
+    filter: blur(5px);
+    z-index: -1;
 }
 
 .profile-photo-wrap img {
@@ -454,11 +462,16 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center;
     display: block;
+    transform: none !important;
+    animation: none !important;
 }
 
 @keyframes rainbowSpin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
