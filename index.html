@@ -220,44 +220,6 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     color: #f5c542;
     margin: 14px 0 5px;
 }
-.profile-photo-wrap {
-    width: 180px;
-    height: 180px;
-    margin: 20px auto;
-    position: relative;
-    border-radius: 50%;
-    isolation: isolate;
-}
-
-.profile-photo-wrap::before {
-    content: "";
-    position: absolute;
-    inset: -7px;
-    border-radius: 50%;
-    background: conic-gradient(
-        red, orange, yellow, lime,
-        cyan, blue, violet, red
-    );
-    animation: rainbowSpin 3s linear infinite;
-    filter: blur(5px);
-    z-index: -1;
-}
-
-.profile-photo-wrap img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    border: 3px solid white;
-    display: block;
-}
-
-@keyframes rainbowSpin {
-    to {
-        transform: rotate(360deg);
-    }
-}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Parmar Ravidas","url":"https://ravidasjaipal03-ui.github.io/Ravidas-Parmar/","description":"Photo and video editing creator.","sameAs":["https://www.facebook.com/itz.parmar524","https://www.instagram.com/mister.parmar524/","https://www.tiktok.com/@parmar_jani.786"]}
@@ -471,6 +433,32 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     box-shadow:
         0 0 10px rgba(255, 0, 0, 0.35),
         0 0 18px rgba(0, 140, 255, 0.35);
+}
+.profile-photo-wrap {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 50%;
+    padding: 5px;
+    background: conic-gradient(
+        red, orange, yellow, lime,
+        cyan, blue, violet, red
+    );
+    animation: rainbowSpin 3s linear infinite;
+    box-shadow: 0 0 20px #00d9ff, 0 0 30px #ff00aa;
+}
+
+.profile-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes rainbowSpin {
+    to { transform: rotate(360deg); }
 }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
