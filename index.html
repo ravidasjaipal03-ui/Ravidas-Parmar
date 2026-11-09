@@ -473,6 +473,75 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
         transform: rotate(360deg);
     }
 }
+/* PARMAR POETRY DESIGN */
+
+.poetry-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.poetry-card {
+    background: linear-gradient(145deg, #171719, #211c13);
+    border: 1px solid #b58a42;
+    border-radius: 18px;
+    padding: 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(230,189,104,.12);
+}
+
+.poetry-card h3 {
+    color: #ffdf91;
+    margin-bottom: 12px;
+}
+
+.poetry-category {
+    color: #e6bd68;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.poetry-text {
+    color: #fff;
+    font-size: 18px;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.poetry-poet {
+    color: #e6bd68;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.poetry-date {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.copy-poetry {
+    margin-top: 18px;
+    padding: 11px 24px;
+    border: 1px solid #e6bd68;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffdf91;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.copy-poetry:hover {
+    background: #e6bd68;
+    color: #111;
+}
+
+.poetry-loading {
+    color: #e6bd68;
+    text-align: center;
+}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
