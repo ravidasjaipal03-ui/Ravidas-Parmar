@@ -557,6 +557,28 @@ footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0;color:var
     border-radius: 12px;
     box-shadow: 0 0 15px #e6bd6855;
                                 }
+.siren-box {
+    text-align: center;
+    margin: 25px auto;
+}
+
+#sirenBtn {
+    padding: 15px 30px;
+    border: 2px solid #ffdf91;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #b80000, #ff3030);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff000066;
+}
+
+#sirenBtn.active {
+    background: #222;
+    border-color: #00aaff;
+    box-shadow: 0 0 18px #008cff;
+  }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -1063,5 +1085,68 @@ loadParmarPoetry();
    rel="noopener noreferrer">
    📸 Send Photo / Video on WhatsApp
 </a>
+<div class="siren-box">
+    <button id="sirenBtn" type="button">
+        🚨 START SIREN
+    </button>
+</div>
+<script>
+(() => {
+    const btn = document.getElementById("sirenBtn");
+    let audioContext;
+    let oscillator;
+    let gain;
+    let timer;
+
+    function stopSiren() {
+        clearInterval(timer);
+        if (oscillator) {
+            oscillator.stop();
+            oscillator = null;
+        }
+        if (audioContext) {
+            audioContext.close();
+            audioContext = null;
+        }
+        btn.textContent = "🚨 START SIREN";
+        btn.classList.remove("active");
+    }
+
+    btn.addEventListener("click", async () => {
+        if (oscillator) {
+            stopSiren();
+            return;
+        }
+
+        audioContext = new AudioContext();
+        await audioContext.resume();
+
+        oscillator = audioContext.createOscillator();
+        gain = audioContext.createGain();
+
+        oscillator.type = "sine";
+        oscillator.frequency.value = 650;
+        gain.gain.value = 0.12;
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.start();
+
+        let high = false;
+
+        timer = setInterval(() => {
+            high = !high;
+            oscillator.frequency.setTargetAtTime(
+                high ? 850 : 550,
+                audioContext.currentTime,
+                0.08
+            );
+        }, 600);
+
+        btn.textContent = "🔴 STOP SIREN";
+        btn.classList.add("active");
+    });
+})();
+</script>
 </body>
 </html>
