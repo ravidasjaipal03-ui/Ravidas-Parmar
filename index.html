@@ -961,5 +961,82 @@ orderForm.addEventListener("submit", async function(e) {
     alt="WhatsApp"
   >
 </a>
+<script>
+async function loadParmarPoetry() {
+    const list = document.getElementById("poetryList");
+
+    try {
+        const response = await fetch("./poetry.json");
+
+        if (!response.ok) {
+            throw new Error("Poetry file not found");
+        }
+
+        const poems = await response.json();
+
+        list.innerHTML = "";
+
+        poems.sort((a, b) => b.date.localeCompare(a.date));
+
+        poems.forEach(poem => {
+            const card = document.createElement("div");
+            card.className = "poetry-card";
+
+            const title = document.createElement("h3");
+            title.textContent = poem.title;
+
+            const category = document.createElement("div");
+            category.className = "poetry-category";
+            category.textContent = poem.category;
+
+            const poetryText = document.createElement("p");
+            poetryText.className = "poetry-text";
+            poetryText.textContent = poem.text;
+
+            const poet = document.createElement("div");
+            poet.className = "poetry-poet";
+            poet.textContent = "— " + poem.poet;
+
+            const date = document.createElement("div");
+            date.className = "poetry-date";
+            date.textContent = poem.date;
+
+            const button = document.createElement("button");
+            button.className = "copy-poetry";
+            button.textContent = "📋 Copy Poetry";
+
+            button.addEventListener("click", async () => {
+                const copyText =
+                    poem.title + "\n\n" +
+                    poem.text + "\n\n— " + poem.poet;
+
+                try {
+                    await navigator.clipboard.writeText(copyText);
+                    button.textContent = "Copied Successfully ✓";
+                } catch (error) {
+                    button.textContent = "Copy not available";
+                }
+            });
+
+            card.append(
+                title,
+                category,
+                poetryText,
+                poet,
+                date,
+                button
+            );
+
+            list.appendChild(card);
+        });
+
+    } catch (error) {
+        list.textContent = "Poetry could not be loaded. Please try again.";
+        console.error(error);
+    }
+}
+
+loadParmarPoetry();
+</script>
 </body>
 </html>
